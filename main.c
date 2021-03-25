@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 		}
 		if(S_ISREG(file_mode)){
 			//printf("mode = %o \n",file_mode);
-			if( ( (file_mode & S_IXUSR) || (file_mode & S_IXGRP) || (file_mode & S_IXOTH) ) !=0 ){ //권한 확인할때 file_mode와 권한을 각 하나씩 묶어야 한다.
+			if( ( (file_mode & S_IXUSR) || (file_mode & S_IXGRP) || (file_mode & S_IXOTH) ) !=0 ){ //권한 확인할때 file_mode와 권한을 각 하나씩 묶어서 표현해야 한다.
 				chmod(argv[i], S_IRUSR |S_IXUSR |S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
 				//printf("execute yes \n");
 			}
